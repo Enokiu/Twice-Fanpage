@@ -57,34 +57,44 @@ window.addEventListener('load', function () {
 	}
 });
 
-// Parallax-Effekt und dunkler Header beim Scrollen sticky machen
 window.addEventListener('load', function () {
-	const header = document.querySelector('.header');
-	const imageMax = document.querySelector('.image-max');
-	const background = document.querySelector('.background');
-	const darkHeader = document.querySelector('.dark-header'); // Fehlendes Element darkHeader hinzufügen
-  
-	if (header && imageMax) {
-	  header.style.height = imageMax.clientHeight + 'px';
-	}
-  
-	// Initialisiere den dunklen Header als sticky
-	darkHeader.style.backgroundColor = '#333';
-	darkHeader.style.height = '80px';
-	darkHeader.style.position = 'sticky';
-	darkHeader.style.top = '0';
-  
-	window.addEventListener('scroll', () => {
-	  const scrollY = window.scrollY;
-	  const translateY = scrollY / 2;
+    const header = document.querySelector('.header');
+    const imageMax = document.querySelector('.image-max');
+    const background = document.querySelector('.background');
+    const darkHeader = document.querySelector('.dark-header');
+    const headerOriginalPosition = darkHeader.offsetTop;
+    const headerHeight = darkHeader.offsetHeight;
 
-	  imageMax.style.transform = `translateY(${translateY}px)`;
-	  background.style.transform = `translateY(${translateY}px)`;
-	});
-  
-	// Initialisierung
-	header.style.height = `${imageMax.offsetHeight}px`;
+    if (header && imageMax) {
+        header.style.height = imageMax.clientHeight + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const translateY = scrollY / 2;
+
+        imageMax.style.transform = `translateY(${translateY}px)`;
+        background.style.transform = `translateY(${translateY}px)`;
+
+        if (scrollY > headerOriginalPosition) {
+            darkHeader.style.position = 'fixed';
+            darkHeader.style.top = '0';
+            darkHeader.style.transition = 'top 0.3s ease';
+            document.body.style.paddingTop = headerHeight + 'px';
+        } else {
+            darkHeader.style.position = 'static';
+            darkHeader.style.transition = 'none';
+            document.body.style.paddingTop = '0';
+        }
+    });
+
+    header.style.height = `${imageMax.offsetHeight}px`;
+    darkHeader.style.backgroundColor = '#333';
+    darkHeader.style.height = '80px';
+    darkHeader.style.position = 'sticky';
+    darkHeader.style.top = '0';
 });
+
 
   
 
