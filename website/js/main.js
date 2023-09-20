@@ -77,21 +77,15 @@ window.addEventListener('load', function () {
 	window.addEventListener('scroll', () => {
 	  const scrollY = window.scrollY;
 	  const translateY = scrollY / 2;
-  
-	  // Prüfe, ob der Header die obere Seite erreicht hat, und ändere die Position entsprechend
-	  if (scrollY >= imageMax.clientHeight) {
-		darkHeader.style.position = 'fixed';
-	  } else {
-		darkHeader.style.position = 'sticky';
-	  }
-  
+
 	  imageMax.style.transform = `translateY(${translateY}px)`;
 	  background.style.transform = `translateY(${translateY}px)`;
 	});
   
 	// Initialisierung
 	header.style.height = `${imageMax.offsetHeight}px`;
-  });
+});
+
   
 
 

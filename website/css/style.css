@@ -1,12 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
+@font-face {
+  font-family: 'Valverde Condensed Semibold';
+  src: url('../fonts/valverde/Valverde-CondensedSemibold.otf') format('opentype');
+  /* Du kannst auch andere Formate wie woff oder woff2 für Webunterstützung hinzufügen */
+}
+
+
 html,
 body {
   width: 100%;
   height: 100%;
-  font-family: "Montserrat", sans-serif;
+  margin: 0; /* Setzen Sie den Margin auf 0 */
+  padding: 0; /* Setzen Sie das Padding auf 0 */
+  font-family: 'Valverde Condensed Semibold', sans-serif;
   background: #FCDDAC;
-
 }
+
+h1 {
+  font-family: 'Valverde Condensed Semibold', sans-serif;
+}
+
 
 .centered {
   display: flex;
@@ -56,6 +68,7 @@ body {
   justify-content: center;
   color: #fff;
   z-index: 10;
+  transition: all 0.3s ease; /* Fügt eine Übergangsanimation hinzu */
 }
 
 
@@ -131,13 +144,15 @@ body {
   
 
   .card .image.background {
-    background: linear-gradient(to top,  #90D5E0, #ADA6D2);
+    background: linear-gradient(to top,  #90D5E0, #ADA6D2); /* Gradientenhintergrund */
+    /* Andere Stile */
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Hintergrund fixieren */
-    border-radius: 1rem; /* Fügen Sie hier die Rundungen hinzu */
-  }  
+    border-radius: 1rem; /* Rundungen hinzufügen */
+  }
+  
   
 .card .image.cutout {
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 4rem) scale(0.92);

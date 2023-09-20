@@ -2,11 +2,13 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import json
+import re
 
 # Erstelle einen Ordner, wenn er nicht existiert
 def create_output_folder(output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
+
 
 # Extrahiert den Inhalt (Paragraph und Überschrift) der Wikipedia-Seite und speichert ihn in einer Textdatei
 def extract_wiki(url, output_filename):
@@ -25,14 +27,23 @@ def extract_wiki(url, output_filename):
         for element in content.find_all(['p', 'h2', 'h3']):
             if element.name == 'p':
                 # Wenn es sich um einen Absatz handelt, Text speichern
-                text = element.get_text(strip=True)
+                text = element.get_text(separator=' ', strip=True)  # Leerzeichen als Separator hinzufügen
                 if text:
+                    # Manuell Leerzeichen vor Klammern, Kommas und anderen Zeichen entfernen
+                    text = re.sub(r'\s+([,])', r'\1', text)
+                    text = re.sub(r'\s*([\'"\[\]])\s*', r'\1', text)
+                    text = re.sub(r'\s*\(\s*', r' (', text)  # Nur ein Leerzeichen vor der öffnenden Klammer hinzufügen
+                    text = re.sub(r'\s*(\)|\]|\}|\>)', r' \1', text)  # Leerzeichen vor Sonderzeichen hinzufügen
+                    text = re.sub(r'\s*&\s*', r' & ', text)  # Leerzeichen vor und nach '&' hinzufügen
+                    text = re.sub(r'"', r' " ', text)  # Leerzeichen vor und nach dem doppelten Anführungszeichen hinzufügen
+                    text = re.sub(r'\s*\.\s*', r'.', text)  # Kein Leerzeichen vor dem Punkt hinzufügen
                     file.write(text + '\n')
             elif element.name in ['h2', 'h3']:
                 # Wenn es sich um eine Überschrift handelt, einen Absatz erstellen und die Überschrift speichern
                 header_text = element.get_text(strip=True)
                 if header_text:
                     file.write(f'\n{header_text}\n')
+
 
 # Extrahiert den Slogan in einer Textdatei
 def extract_slogan(url, output_filename):
