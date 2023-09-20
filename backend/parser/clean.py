@@ -5,7 +5,7 @@ import os
 # Du kannst auch ein bestimmtes Verzeichnis angeben, in dem die Dateien liegen.
 
 # Verzeichnis mit den Textdateien
-directory = "parser/wiki/"  # Aktuelles Verzeichnis
+directory = "backend/parser/wiki/"  # Aktuelles Verzeichnis
 
 # Regulären Ausdruck definieren, um Text in eckigen Klammern zu finden und entfernen
 pattern = r'\[.*?\]'

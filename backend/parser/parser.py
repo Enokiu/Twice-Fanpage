@@ -9,7 +9,6 @@ def create_output_folder(output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-
 # Extrahiert den Inhalt (Paragraph und Überschrift) der Wikipedia-Seite und speichert ihn in einer Textdatei
 def extract_wiki(url, output_filename):
     # HTTP-Anfrage senden
@@ -60,7 +59,7 @@ def extract_slogan(url, output_filename):
     text = target_element.get_text(separator='\n', strip=True)
 
     # Verzeichnis erstellen, wenn es nicht existiert
-    output_dir = "parser/wiki"
+    output_dir = "backend/parser/wiki"
     os.makedirs(output_dir, exist_ok=True)
 
     # Den Text in die Datei schreiben
@@ -70,15 +69,15 @@ def extract_slogan(url, output_filename):
 # Hauptfunktion
 def main():
     # JSON-Datei lesen
-    with open('parser/links.json', 'r') as json_file:
+    with open('backend/parser/links.json', 'r') as json_file:
         data = json.load(json_file)
 
     # Zugriff auf die Links
     wiki_links = data['wiki_links']
     slogan_url = data['slogan_link']
 
-    # Erstellen Sie den Ordner "parser/wiki", wenn er nicht existiert
-    output_folder = "parser/wiki"
+    # Erstellen Sie den Ordner "backend/parser/wiki", wenn er nicht existiert
+    output_folder = "backend/parser/wiki"
     create_output_folder(output_folder)
 
     # Schleife durch die Liste der Wikipedia-Links
