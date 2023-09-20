@@ -1,5 +1,16 @@
 # Twice Fanpage Project
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Repository Structure](#repository-structure)
+- [Technologies Used](#technologies-used)
+- [Program Execution Flow](#program-execution-flow)
+- [Running the Program](#running-the-program)
+- [Text File Cleaning (Optional)](#text-file-cleaning-optional)
+- [Website](#website) <!-- Added this section -->
+- [Note](#note)
+
 ## Project Overview
 
 This provides an overview of the "Twice Fanpage" project, detailing the development process, technologies utilized, and the structure of the GitHub repository. The project aims to extract, clean, and store information from Wikipedia pages about the K-pop group Twice. The extracted data is then transformed into JSON format and inserted into a MongoDB database for future retrieval on a website.
@@ -56,9 +67,13 @@ To execute the program, invoke the `main()` function in your Python script. This
 
 If you wish to further clean the text files, a separate script in the code removes square brackets and specific characters.
 
+## Website
+
+- **Incoming** <!-- Added this section -->
+
 ## Note
 
 - Ensure that MongoDB is running on your local system to enable successful database access.
 - Verify that all required libraries (Requests, BeautifulSoup, pymongo) are installed for the script to function smoothly.
 
-This technical report provides a comprehensive overview of the Twice Fanpage project's structure, technologies, and execution flow. It serves as a valuable resource for contributors and users of the GitHub repository. Good luck with the development of your website!
+This provides a comprehensive overview of the Twice Fanpage project's structure, technologies, and execution flow. It serves as a valuable resource for contributors and users of the GitHub repository. Good luck with the development of your website!
