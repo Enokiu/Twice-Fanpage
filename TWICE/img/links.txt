@@ -1,17 +1,3 @@
-Webscraping:
-https://en.wikipedia.org/wiki/Twice
-https://en.wikipedia.org/wiki/Nayeon
-https://en.wikipedia.org/wiki/Jeongyeon
-https://en.wikipedia.org/wiki/Momo_Hirai
-https://en.wikipedia.org/wiki/Sana_(singer)
-https://en.wikipedia.org/wiki/Jihyo
-https://en.wikipedia.org/wiki/Mina_(Japanese_singer)
-https://en.wikipedia.org/wiki/Dahyun
-https://en.wikipedia.org/wiki/Chaeyoung
-https://en.wikipedia.org/wiki/Tzuyu
-
-https://kpop.fandom.com/wiki/TWICE
-
 Bilder:
 https://www.deviantart.com/paintasone/art/Nayeon-TWICE-png-render-737761266
 https://www.deviantart.com/paintasone/art/Momo-TWICE-png-render-737761184
