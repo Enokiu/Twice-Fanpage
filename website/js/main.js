@@ -96,6 +96,25 @@ window.addEventListener('load', function () {
 });
 
 
-  
 
-
+var swiper = new Swiper('.blog-slider', {
+  spaceBetween: 30,
+  effect: 'fade',
+  loop: true,
+  mousewheel: {
+    invert: false,
+  },
+  pagination: {
+    el: '.blog-slider__pagination',
+    clickable: true,
+  },
+  autoplay: {
+    delay: 5000, // Zeit in Millisekunden (5 Sekunden)
+  },
+  on: {
+    slideChange: function () {
+      $('.blog-slider__item').removeClass('active');
+      $('.swiper-slide-active').closest('.blog-slider__item').addClass('active');
+    }
+  }
+});
