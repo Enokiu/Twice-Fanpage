@@ -61,9 +61,6 @@ window.addEventListener('load', function () {
     const header = document.querySelector('.header');
     const imageMax = document.querySelector('.image-max');
     const background = document.querySelector('.background');
-    const darkHeader = document.querySelector('.dark-header');
-    const headerOriginalPosition = darkHeader.offsetTop;
-    const headerHeight = darkHeader.offsetHeight;
 
     if (header && imageMax) {
         header.style.height = imageMax.clientHeight + 'px';
@@ -75,24 +72,9 @@ window.addEventListener('load', function () {
 
         imageMax.style.transform = `translateY(${translateY}px)`;
         background.style.transform = `translateY(${translateY}px)`;
-
-        if (scrollY > headerOriginalPosition) {
-            darkHeader.style.position = 'fixed';
-            darkHeader.style.top = '0';
-            darkHeader.style.transition = 'top 0.3s ease';
-            document.body.style.paddingTop = headerHeight + 'px';
-        } else {
-            darkHeader.style.position = 'static';
-            darkHeader.style.transition = 'none';
-            document.body.style.paddingTop = '0';
-        }
     });
 
     header.style.height = `${imageMax.offsetHeight}px`;
-    darkHeader.style.backgroundColor = '#333';
-    darkHeader.style.height = '80px';
-    darkHeader.style.position = 'sticky';
-    darkHeader.style.top = '0';
 });
 
 

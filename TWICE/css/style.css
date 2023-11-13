@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Valverde Condensed Semibold';
-  src: url('../fonts/valverde/Valverde-CondensedSemibold.otf') format('opentype');
+  font-family: 'unispace';
+  src: url('../fonts/unispace/unispace bd.otf') format('opentype');
   /* Du kannst auch andere Formate wie woff oder woff2 für Webunterstützung hinzufügen */
 }
 
@@ -15,12 +15,35 @@ body {
   /* Setzen Sie den Margin auf 0 */
   padding: 0;
   /* Setzen Sie das Padding auf 0 */
-  font-family: 'Arial', sans-serif;
+  font-family: 'unispace';
   background: #FCDDAC;
 }
 
 h1 {
-  font-family: 'Arial', sans-serif;
+  font-family: 'unispace';
+  font-size: 3rem;
+}
+
+/* Senkrechte Icons */
+.fixed-icon {
+  position: fixed;
+  top: 93%;
+  right: 50px; 
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column; 
+  background-color: #333; 
+  padding: 10px 10px 0px 10px;
+  border-radius: 5px;
+}
+
+.fixed-icon span {
+  margin-bottom: 10px; 
+}
+
+.fixed-icon a {
+  text-decoration: none;
+  color: #fff; 
 }
 
 
@@ -195,7 +218,7 @@ h1 {
 
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   text-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
@@ -248,6 +271,7 @@ footer {
     max-width: 680px;
     height: 400px;
   }
+
 }
 @media screen and (max-width: 768px) {
   .blog-slider {
@@ -457,7 +481,7 @@ footer {
   bottom: auto !important;
   transform: translateY(-50%);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .blog-slider__pagination {
     transform: translateX(-50%);
     left: 50% !important;
@@ -499,12 +523,120 @@ footer {
 }
 
 
+.youtube {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  position: relative;
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 0px 25px;
+  border-radius: 25px;
+  height: 400px;
+  transition: all 0.3s;
+}
+
+.video-container {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-right: 20px; /* Abstand zwischen video-container und video-content */
+  box-shadow: 4px 13px 30px 1px #d1cde6;
+  transform: translateX(80px);
+}
+
+/* Stil für das Video-Banner */
+.video-banner {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+.video-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  border-radius: 8px;
+}
+
+.video-banner-headline {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.video-banner-icon-play {
+  font-size: 50px; /* Größe des Play-Icons anpassen */
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Stil für das Overlay beim Hover */
+.video-banner:hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe und Transparenz anpassen */
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-container:hover .video-banner:after {
+  opacity: 1;
+}
+
+.video-content {
+  flex: 1;
+}
+
+.video-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0d0925;;
+}
+
+.video-content p {
+  color: #4e4a67;
+}
 
 
 
+@media screen and (max-width: 950px) {
+  .youtube {
+    flex-direction: column;
+    height: auto;
+    padding: 25px 10px;
+  }
+
+  .video-container {
+    margin-right: 0;
+    transform: none;
+    margin-top: 20px;
+  }
+}
 
 
 
+/* Media Query für kleinere Bildschirme (z.B. Tablets) */
+@media (max-width: 1240px) {
+  .fixed-icon {
+    display: none;
+  }
+}
 
 
 /* Media Query für kleinere Bildschirme (z.B. Tablets) */
@@ -516,6 +648,7 @@ footer {
   .header {
     height: 400px !important;
   }
+  
 }
 
 
