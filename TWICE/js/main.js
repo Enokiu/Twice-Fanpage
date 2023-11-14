@@ -10,6 +10,7 @@ const remap = (value, oldMax, newMax) => {
 	return Math.min(Math.max(newValue, -newMax), newMax);
 };
 
+// Card Rotation for Profile
 window.addEventListener("DOMContentLoaded", (event) => {
 	const cards = document.querySelectorAll(".card");
 	cards.forEach((e) => {
@@ -43,11 +44,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			e.style.setProperty("--rotateX", y + "deg");
 		})
 	}
-	setInterval (update,1000/60)
+	setInterval(update, 1000 / 60)
 });
 
 
-// JavaScript, um die Höhe des Headers anzupassen
+// Header Parallax Effect
 window.addEventListener('load', function () {
 	const header = document.querySelector('.header');
 	const imageMax = document.querySelector('.image-max');
@@ -58,45 +59,64 @@ window.addEventListener('load', function () {
 });
 
 window.addEventListener('load', function () {
-    const header = document.querySelector('.header');
-    const imageMax = document.querySelector('.image-max');
-    const background = document.querySelector('.background');
+	const header = document.querySelector('.header');
+	const imageMax = document.querySelector('.image-max');
+	const background = document.querySelector('.background');
 
-    if (header && imageMax) {
-        header.style.height = imageMax.clientHeight + 'px';
-    }
+	if (header && imageMax) {
+		header.style.height = imageMax.clientHeight + 'px';
+	}
 
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const translateY = scrollY / 2;
+	window.addEventListener('scroll', () => {
+		const scrollY = window.scrollY;
+		const translateY = scrollY / 2;
 
-        imageMax.style.transform = `translateY(${translateY}px)`;
-        background.style.transform = `translateY(${translateY}px)`;
-    });
+		imageMax.style.transform = `translateY(${translateY}px)`;
+		background.style.transform = `translateY(${translateY}px)`;
+	});
 
-    header.style.height = `${imageMax.offsetHeight}px`;
+	header.style.height = `${imageMax.offsetHeight}px`;
+});
+
+
+// Discography Slider, with autoplay  
+var swiper = new Swiper('.blog-slider', {
+	spaceBetween: 30,
+	effect: 'fade',
+	loop: true,
+	mousewheel: {
+		invert: false,
+	},
+	pagination: {
+		el: '.blog-slider__pagination',
+		clickable: true,
+	},
+	autoplay: {
+		delay: 5000, //Zeit in ms
+	},
+	on: {
+		slideChange: function () {
+			$('.blog-slider__item').removeClass('active');
+			$('.swiper-slide-active').closest('.blog-slider__item').addClass('active');
+		}
+	}
 });
 
 
 
-var swiper = new Swiper('.blog-slider', {
-  spaceBetween: 30,
-  effect: 'fade',
-  loop: true,
-  mousewheel: {
-    invert: false,
-  },
-  pagination: {
-    el: '.blog-slider__pagination',
-    clickable: true,
-  },
-  autoplay: {
-    delay: 5000, // Zeit in Millisekunden (5 Sekunden)
-  },
-  on: {
-    slideChange: function () {
-      $('.blog-slider__item').removeClass('active');
-      $('.swiper-slide-active').closest('.blog-slider__item').addClass('active');
-    }
-  }
+//Headerscroll
+document.querySelectorAll('.dark-header a').forEach(anchor => {
+	anchor.addEventListener('click', function (e) {
+		e.preventDefault();
+
+		const targetElement = document.querySelector(this.getAttribute('href'));
+		const offset = 100; // Der zusätzliche Offset von 100 Pixeln
+
+		if (targetElement) {
+			window.scrollTo({
+				top: targetElement.offsetTop - offset,
+				behavior: 'smooth'
+			});
+		}
+	});
 });

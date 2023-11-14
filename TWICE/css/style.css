@@ -1,9 +1,7 @@
 @font-face {
   font-family: 'unispace';
   src: url('../fonts/unispace/unispace bd.otf') format('opentype');
-  /* Du kannst auch andere Formate wie woff oder woff2 für Webunterstützung hinzufügen */
 }
-
 
 html {
   background: #1d1c1c;
@@ -12,9 +10,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  /* Setzen Sie den Margin auf 0 */
   padding: 0;
-  /* Setzen Sie das Padding auf 0 */
   font-family: 'unispace';
   background: #FCDDAC;
 }
@@ -24,17 +20,36 @@ h1 {
   font-size: 3rem;
 }
 
+.dark-header {
+  background-color: #1d1c1c;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.dark-header a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; 
+}
+
+
 /* Senkrechte Icons */
 .fixed-icon {
   position: fixed;
-  top: 93%;
-  right: 50px; 
+  top: 95%;
+  left: 96%; 
   transform: translate(0, -50%);
   display: flex;
   flex-direction: column; 
-  background-color: #333; 
-  padding: 10px 10px 0px 10px;
-  border-radius: 5px;
 }
 
 .fixed-icon span {
@@ -45,6 +60,11 @@ h1 {
   text-decoration: none;
   color: #fff; 
 }
+
+.fixed-icon a i {
+  font-size: 24px; /* Passe die gewünschte Größe an */
+}
+
 
 
 .centered {
@@ -90,22 +110,6 @@ h1 {
   margin-right: auto;
 }
 
-.dark-header {
-  background-color: #1d1c1c;
-  height: 80px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-
 .card {
   position: relative;
   height: 28rem;
@@ -116,11 +120,8 @@ h1 {
   overflow: hidden;
   border: 0.5rem solid var(--border-color);
   border-radius: 1rem;
-  /* Fügen Sie hier die Rundungen hinzu */
   flex: 0 0 calc(33.33% - 20px);
-  /* 3 Karten pro Zeile, 20px Abstand abziehen */
   max-width: calc(33.33% - 20px);
-  /* 3 Karten pro Zeile, 20px Abstand abziehen */
 }
 
 
@@ -154,26 +155,19 @@ h1 {
   max-height: 100%;
 }
 
-
-
 .card .image.background {
   background: linear-gradient(to top, #90D5E0, #ADA6D2);
-  /* Gradientenhintergrund */
-  /* Andere Stile */
   transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* Hintergrund fixieren */
   border-radius: 1rem;
-  /* Rundungen hinzufügen */
 }
 
 
 .card .image.cutout {
   transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 4rem) scale(0.92);
   z-index: 5;
-  /* Erhöhen Sie die z-index, um sicherzustellen, dass das Bild über dem gelben Rahmen liegt */
 }
 
 .card .content {
@@ -195,8 +189,6 @@ h1 {
   border: #FCDDAC 0.5rem solid;
   transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 2rem);
   border-radius: 1rem;
-  /* Fügen Sie hier die Rundungen hinzu */
-
 }
 
 .card::before {
@@ -210,10 +202,7 @@ h1 {
   border: #FCDDAC 0.5rem solid;
   transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 2rem);
   z-index: 4;
-  /* Verringern Sie die z-index, damit der Rahmen unter dem Bild liegt */
   border-radius: 1rem;
-  /* Fügen Sie hier die Rundungen hinzu */
-
 }
 
 
@@ -234,10 +223,8 @@ footer {
   background-color: #1d1c1c;
   color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: 45px 20px;
 }
-
-
 
 .my-section{
   margin: 50px 50px;
@@ -247,11 +234,9 @@ footer {
   color: #1d1c1c;
 }
 
-#card-headline{
+#profile{
   margin: 30px 0px
 }
-
-
 
 
 .blog-slider {
@@ -481,17 +466,7 @@ footer {
   bottom: auto !important;
   transform: translateY(-50%);
 }
-@media screen and (max-width: 1200px) {
-  .blog-slider__pagination {
-    transform: translateX(-50%);
-    left: 50% !important;
-    top: 205px;
-    width: 100% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
+
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
 }
@@ -520,6 +495,15 @@ footer {
     height: 11px;
     width: 30px;
   }
+  .blog-slider__pagination {
+    transform: translateX(-50%);
+    left: 50% !important;
+    top: 205px;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 
@@ -544,7 +528,7 @@ footer {
   height: 300px;
   overflow: hidden;
   border-radius: 8px;
-  margin-right: 20px; /* Abstand zwischen video-container und video-content */
+  margin-right: 20px; 
   box-shadow: 4px 13px 30px 1px #d1cde6;
   transform: translateX(80px);
 }
@@ -573,7 +557,7 @@ footer {
 }
 
 .video-banner-icon-play {
-  font-size: 50px; /* Größe des Play-Icons anpassen */
+  font-size: 50px; 
   color: #fff;
   position: absolute;
   top: 50%;
@@ -589,7 +573,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe und Transparenz anpassen */
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -614,6 +598,49 @@ footer {
 }
 
 
+/* Neue Regel für den Footer-Icon-Container */
+.footer-icons {
+  display: none; /* Standardmäßig ausgeblendet */
+}
+
+.footer-text{
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  margin: 10px; 
+}
+
+/* Sichtbar machen der Icons im Footer ab max-width: 1045px */
+@media (max-width: 1045px) {
+  .fixed-icon {
+    display: none;
+  }
+
+  .footer-text{
+    display: none;
+  }
+  
+
+  .footer-icons {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    margin: 10px; 
+  }
+
+  .footer-icons a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 15px; /* Optional: Füge Abstand zwischen den Icons hinzu */
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+
+
 
 @media screen and (max-width: 950px) {
   .youtube {
@@ -629,17 +656,12 @@ footer {
   }
 }
 
-
-
-/* Media Query für kleinere Bildschirme (z.B. Tablets) */
-@media (max-width: 1240px) {
+@media (max-width: 1045px) {
   .fixed-icon {
     display: none;
   }
 }
 
-
-/* Media Query für kleinere Bildschirme (z.B. Tablets) */
 @media (max-width: 1000px) {
   #header-cutout {
     margin-top: 20px;
@@ -651,12 +673,9 @@ footer {
   
 }
 
-
-/* Media Query für kleinere Bildschirme (z.B. Tablets) */
 @media (max-width: 768px) {
   .card {
     flex: 0 0 calc(50% - 20px);
-    /* 2 Karten pro Zeile */
     max-width: calc(50% - 20px);
   }
 
@@ -669,18 +688,15 @@ footer {
   }
 }
 
-/* Media Query für noch kleinere Bildschirme (z.B. Handys) */
 @media (max-width: 560px) {
   .header {
     height: 250px !important;
   }
 }
 
-/* Media Query für noch kleinere Bildschirme (z.B. Handys) */
 @media (max-width: 480px) {
   .card {
     flex: 0 0 100%;
-    /* 1 Karte pro Zeile */
     max-width: 100%;
   }
 }
