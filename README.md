@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This project is a fan tribute to the K-pop group TWICE, showcasing HTML, JS, and CSS skills.
+This project is a fan tribute to the K-pop group TWICE, showcasing HTML, JS and CSS skills.
 
 ## Picture Showcase
 
